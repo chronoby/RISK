@@ -72,23 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Dependences\glm;D:\Dependences\glad\include;E:\Include\OpenGL\include;$(IncludePath);D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;E:\Include\OpenGL\include;$(IncludePath);D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
+    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
+    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
+    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
+    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -156,11 +156,16 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="model.cpp" />
     <ClCompile Include="shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="model.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
