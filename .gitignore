@@ -369,5 +369,5 @@ stb_image.h
 stb_image_write.h
 
 # diff
-RISK.vcxproj
-glad.c
+src/RISK.vcxproj
+src/glad.c
