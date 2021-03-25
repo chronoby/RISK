@@ -371,3 +371,6 @@ stb_image_write.h
 # diff
 src/RISK.vcxproj
 src/glad.c
+
+# model
+assets/model
