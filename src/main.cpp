@@ -7,11 +7,12 @@
 
 #include <iostream>
 
-#define STB_IMAGE_IMPLEMENTATION
+//#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 #include "shader.h"
 #include "camera.h"
+#include "model.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -19,8 +20,8 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 unsigned int loadTexture(char const *path);
 
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1920;
+const unsigned int SCR_HEIGHT = 1080;
 
 // camera
 Camera camera(glm::vec3(0.0f, 0.5f, 3.0f));
@@ -28,7 +29,7 @@ float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 
-float deltaTime = 0.0f; 
+float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 glm::vec3 lightPos(1.2f, 1.0f, -1.0f);
@@ -43,7 +44,7 @@ int main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// glfw window create
-	GLFWwindow* window = glfwCreateWindow(800, 600, "Hello, glfw", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(1920, 1080, "Hello, glfw", NULL, NULL);
 	if (window == NULL)
 	{
 		std::cout << "Failed to create window" << std::endl;
@@ -154,6 +155,8 @@ int main()
 	unsigned int cubeTexture = loadTexture("../assets/image/container2.png");
 	unsigned int specularTexture = loadTexture("../assets/image/container2_specular.png");
 
+	Model man("../assets/model/nanosuit/nanosuit.obj");
+
 	cubeShader.use();
 	glUniform1i(glGetUniformLocation(cubeShader.ID, "material.diffuse"), 0);
 	glUniform1i(glGetUniformLocation(cubeShader.ID, "material.specular"), 1);
@@ -223,6 +226,13 @@ int main()
 			glUniformMatrix4fv(glGetUniformLocation(cubeShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
+
+		glm::mat4 ManModel = glm::mat4(1.0f);
+		ManModel = glm::scale(ManModel, glm::vec3(0.1f));
+		ManModel = glm::translate(ManModel, glm::vec3(1.0f, -1.0f, -6.0f));
+		ManModel = glm::rotate(ManModel, (float)glfwGetTime() * glm::radians(20.0f), glm::vec3(1.0f, 0.3f, 0.5f));
+		glUniformMatrix4fv(glGetUniformLocation(cubeShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(ManModel));
+		man.Draw(cubeShader);
 
 		// light
 		lightShader.use();

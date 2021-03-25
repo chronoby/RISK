@@ -1,21 +1,30 @@
 #ifndef MESH_H_
 #define MESH_H_
+
 #include <vector>
+#include <string>
+
+#include <glad/glad.h> 
+#include <GLFW/glfw3.h>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
+#include "shader.h"
 
 struct Vertex
 {
 	glm::vec3 Position;
 	glm::vec3 Normal;
-	glm::vec3 TexCoords;
+	glm::vec2 TexCoords;
 };
 
 struct Texture
 {
     unsigned int id;
-    string type;
+    std::string type;
+    std::string path;
 };
 
 class Mesh
