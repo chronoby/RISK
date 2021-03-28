@@ -1,6 +1,5 @@
 #include "model.h"
 
-#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 unsigned int TextureFromFile(const char *path, const std::string &directory);
 
@@ -52,10 +51,13 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
         vector.z = mesh->mVertices[i].z;
         vertex.Position = vector;
 
-        vector.x = mesh->mNormals[i].x;
-        vector.y = mesh->mNormals[i].y;
-        vector.z = mesh->mNormals[i].z;
-        vertex.Normal = vector;
+        if (mesh->HasNormals())
+        {
+            vector.x = mesh->mNormals[i].x;
+            vector.y = mesh->mNormals[i].y;
+            vector.z = mesh->mNormals[i].z;
+            vertex.Normal = vector;
+        }
 
         if(mesh->mTextureCoords[0])
         {
@@ -128,6 +130,7 @@ unsigned int TextureFromFile(const char *path, const std::string &directory)
     glGenTextures(1, &textureID);
 
     int width, height, nrComponents;
+    stbi_set_flip_vertically_on_load(true);
     unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
     if (data)
     {
