@@ -48,13 +48,14 @@ void main()
     vec3 result = CalcDirLight(dirLight, norm, viewDir, shadow);
     result += CalcPointLight(pointLight, norm, FragPos, viewDir, shadow);
 
-    // FragColor = vec4(result, 1.0);
+    FragColor = vec4(result, 1.0);
     // FragColor = vec4(shadow, shadow, shadow, shadow);
-    vec3 projCoords = FragPosLightSpace.xyz / FragPosLightSpace.w;
-    projCoords = projCoords * 0.5 + 0.5;
-    float closestDepth = texture(shadowMap, projCoords.xy).r; 
-    float currentDepth = projCoords.z;
-    FragColor = vec4(projCoords, 1.0f);
+
+    // vec3 projCoords = FragPosLightSpace.xyz / FragPosLightSpace.w;
+    // projCoords = projCoords * 0.5 + 0.5;
+    // float closestDepth = texture(shadowMap, projCoords.xy).r; 
+    // float currentDepth = projCoords.z;
+    // FragColor = vec4(closestDepth, closestDepth, closestDepth, closestDepth);
     // FragColor = vec4(currentDepth, currentDepth, currentDepth, currentDepth);
 }
 

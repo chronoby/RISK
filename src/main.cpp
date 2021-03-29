@@ -183,9 +183,9 @@ float skyboxVertices[] = {
 };
 
 	glm::vec3 cubePositions[] = {
-        glm::vec3( 0.0f, 0.0f, -1.0f),
-        glm::vec3(-1.0f, 0.0f, -3.0f),
-        glm::vec3( 1.0f, 0.0f, -5.0f)
+        glm::vec3( 0.0f, -1.0f, -1.0f),
+        glm::vec3(-1.0f, -1.0f, -3.0f),
+        glm::vec3( 1.0f, -1.0f, -5.0f)
     };
 
 	unsigned int VBO, VAO, EBO;
@@ -277,6 +277,8 @@ float skyboxVertices[] = {
 	glDrawBuffer(GL_NONE);
 	glReadBuffer(GL_NONE);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	
 	
 	while (!glfwWindowShouldClose(window))
 	{
@@ -302,18 +304,15 @@ float skyboxVertices[] = {
 		lastFrame = currentFrame;
 
 		// depth map
+		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
 		glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
 		glClear(GL_DEPTH_BUFFER_BIT);
-		// glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-		// glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 		float near_plane = 1.0f, far_plane = 17.5f;
 		glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
 		glm::mat4 lightView = glm::lookAt(glm::vec3(1.0f, 10.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glm::mat4 lightSpaceMatrix = lightProjection * lightView;
-
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		depthShader.use();
 		glUniformMatrix4fv(glGetUniformLocation(depthShader.ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
@@ -329,9 +328,9 @@ float skyboxVertices[] = {
             glDrawArrays(GL_TRIANGLES, 0, 36);
 			glBindVertexArray(0);
         }
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		// render
-		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glViewport(0, 0, SCR_WIDTH, SCR_HEIGHT);
 
@@ -381,9 +380,9 @@ float skyboxVertices[] = {
 		glBindTexture(GL_TEXTURE_2D, depthMap);
 
 		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.direction"), -2.0f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.ambient"), 0.2f, 0.2f, 0.2f);
-		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.diffuse"), 0.4f, 0.4f, 0.4f);
-		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.specular"), 0.5f, 0.5f, 0.5f);
+		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.ambient"), 0.0f, 0.0f, 0.0f);
+		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.diffuse"), 1.0f, 1.0f, 1.0f);
+		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
 
 		glm::vec3 diffuseColor = lightColor * glm::vec3(0.8f); // decrease the influence
         glm::vec3 ambientColor = diffuseColor * glm::vec3(0.05f); // low influence
