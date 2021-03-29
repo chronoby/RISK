@@ -39,7 +39,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-glm::vec3 lightPos(0.0f, 4.0f, -6.0f);
+glm::vec3 lightPos(0.0f, 4.0f, -15.0f);
 glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
 
 glm::vec3 manPos(1.0f, 2.0f, -6.0f);
@@ -291,9 +291,9 @@ float skyboxVertices[] = {
 
 		bool show_demo_window = true;
 		//ImGui::ShowDemoWindow(&show_demo_window);
-		ImGui::Begin("Hello, world!");
+		ImGui::Begin("Hello, RISK!");
 
-		ImGui::Text("This is some useful text.");
+		ImGui::Text("This is a demo");
 		ImGui::End();
 		ImGui::Render();
 
@@ -311,7 +311,7 @@ float skyboxVertices[] = {
 		glClear(GL_DEPTH_BUFFER_BIT);
 		float near_plane = 1.0f, far_plane = 17.5f;
 		glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
-		glm::mat4 lightView = glm::lookAt(glm::vec3(1.0f, 10.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glm::mat4 lightView = glm::lookAt(glm::vec3(3.0f, 9.0f, -3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		glm::mat4 lightSpaceMatrix = lightProjection * lightView;
 
 		depthShader.use();
@@ -379,8 +379,8 @@ float skyboxVertices[] = {
 		glActiveTexture(GL_TEXTURE2);
 		glBindTexture(GL_TEXTURE_2D, depthMap);
 
-		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.direction"), -2.0f, -1.0f, -0.3f);
-		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.ambient"), 0.0f, 0.0f, 0.0f);
+		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.direction"), -1.0f, -3.0f, 1.0f);
+		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.ambient"), 0.2f, 0.2f, 0.2f);
 		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.diffuse"), 1.0f, 1.0f, 1.0f);
 		glUniform3f(glGetUniformLocation(cubeShader.ID, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
 
