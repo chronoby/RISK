@@ -28,6 +28,10 @@
     <ClCompile Include="imgui\imgui_widgets.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
+    <ClCompile Include="gui.cpp" />
+    <ClCompile Include="models\cube.cpp">
+      <Filter>models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
@@ -59,10 +63,46 @@
     <ClInclude Include="imgui\imstb_truetype.h">
       <Filter>imgui</Filter>
     </ClInclude>
+    <ClInclude Include="gui.h" />
+    <ClInclude Include="models\cube.h">
+      <Filter>models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="imgui">
       <UniqueIdentifier>{808f5151-006a-4520-9c21-20a42caf030f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{ee5b5cea-dfae-4988-a395-caca9a90f72d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="models">
+      <UniqueIdentifier>{b5d037bb-cfb6-42df-b2bf-ef110d02d896}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\depth_fragment_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\depth_vertex_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\fragment_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\light_fragment_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\light_vertex_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\skybox_fragment_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\skybox_vertex_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shader\vertex_shader.glsl">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

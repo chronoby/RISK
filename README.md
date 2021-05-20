@@ -1,6 +1,6 @@
-# RISK
+# renderer
 
-An 3D scene demo in OpenGL.
+A tiny 3D renderer in OpenGL.
 
 ### Features
 
