@@ -1,3 +1,8 @@
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+
 #include "shader.h"
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath)
@@ -83,9 +88,9 @@ void Shader::initCubeShader(unsigned int cubeTexture, unsigned int specularTextu
     glUniform3f(glGetUniformLocation(ID, "dirLight.ambient"), 0.2f, 0.2f, 0.2f);
     glUniform3f(glGetUniformLocation(ID, "dirLight.diffuse"), 1.0f, 1.0f, 1.0f);
     glUniform3f(glGetUniformLocation(ID, "dirLight.specular"), 1.0f, 1.0f, 1.0f);
-    glUniform3fv(glGetUniformLocation(ID, "pointLight.color"), 1, glm::value_ptr(lightColor));
-    glUniform1f(glGetUniformLocation(ID, "material.shininess"), 32.0f);
 
+    glUniform3fv(glGetUniformLocation(ID, "pointLight.color"), 1, glm::value_ptr(lightColor));
+    
     glm::vec3 diffuseColor = lightColor * glm::vec3(0.8f); // decrease the influence
     glm::vec3 ambientColor = diffuseColor * glm::vec3(0.05f); // low influence
     glUniform3fv(glGetUniformLocation(ID, "pointLight.ambient"), 1, glm::value_ptr(ambientColor));
@@ -94,7 +99,7 @@ void Shader::initCubeShader(unsigned int cubeTexture, unsigned int specularTextu
     
     glUniform1i(glGetUniformLocation(ID, "material.diffuse"), 0);
     glUniform1i(glGetUniformLocation(ID, "material.specular"), 1);
-    glUniform1i(glGetUniformLocation(ID, "shadowMap"), 2);
+    glUniform1f(glGetUniformLocation(ID, "material.shininess"), 32.0f);
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, cubeTexture);
@@ -103,7 +108,8 @@ void Shader::initCubeShader(unsigned int cubeTexture, unsigned int specularTextu
     glBindTexture(GL_TEXTURE_2D, specularTexture);
 }
 
-void Shader::setCubeShader(glm::mat4 model, glm::mat4 view, glm::mat4 projection, glm::vec3 lightPos, glm::vec3 cameraPos, int repeat, unsigned int depthMap)
+void Shader::setCubeShader(glm::mat4 model, glm::mat4 view, glm::mat4 projection, glm::vec3 lightPos, 
+    glm::vec3 cameraPos, int repeat, unsigned int depthMap, glm::mat4 lightSpaceMatrix)
 {
     this->use();
     glUniformMatrix4fv(glGetUniformLocation(ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -112,7 +118,9 @@ void Shader::setCubeShader(glm::mat4 model, glm::mat4 view, glm::mat4 projection
     glUniform3fv(glGetUniformLocation(ID, "pointLight.position"), 1, glm::value_ptr(lightPos));
 	glUniform3fv(glGetUniformLocation(ID, "viewPos"), 1, glm::value_ptr(cameraPos));
     glUniform1i(glGetUniformLocation(ID, "repeat"), repeat);
+    glUniformMatrix4fv(glGetUniformLocation(ID, "lightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
 
+    glUniform1i(glGetUniformLocation(ID, "shadowMap"), 2);
     glActiveTexture(GL_TEXTURE2);
 	glBindTexture(GL_TEXTURE_2D, depthMap);
 }

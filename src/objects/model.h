@@ -1,6 +1,7 @@
 #ifndef MODEL_H_
 #define MODEL_H_
 
+#include <iostream>
 #include <vector>
 #include <memory>
 
@@ -9,9 +10,10 @@
 #include <assimp/postprocess.h>
 
 #include "mesh.h"
-#include "shader.h"
+#include "../shader.h"
+#include "drawable.h"
 
-class Model
+class Model : public Drawable
 {
 public:
     Model(const char* path, std::shared_ptr<Shader>& s) 
@@ -19,7 +21,8 @@ public:
         loadModel(path);
         shader = s;
     }
-    void Draw(Shader shader);
+    virtual void draw(Shader shader);
+    virtual void draw() { std::cout << " "; }
 
 private:
     std::vector<Texture> textures_loaded;

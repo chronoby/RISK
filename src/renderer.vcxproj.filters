@@ -4,8 +4,6 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mesh.cpp" />
-    <ClCompile Include="model.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="imgui\imgui.cpp">
       <Filter>imgui</Filter>
@@ -29,14 +27,22 @@
       <Filter>imgui</Filter>
     </ClCompile>
     <ClCompile Include="gui.cpp" />
-    <ClCompile Include="models\cube.cpp">
-      <Filter>models</Filter>
+    <ClCompile Include="skybox.cpp" />
+    <ClCompile Include="objects\mesh.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\model.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\cube.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="shadow\shadowmap.cpp">
+      <Filter>shadow</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
-    <ClInclude Include="mesh.h" />
-    <ClInclude Include="model.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="imgui\imconfig.h">
@@ -64,8 +70,21 @@
       <Filter>imgui</Filter>
     </ClInclude>
     <ClInclude Include="gui.h" />
-    <ClInclude Include="models\cube.h">
-      <Filter>models</Filter>
+    <ClInclude Include="skybox.h" />
+    <ClInclude Include="objects\mesh.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\model.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\cube.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="objects\drawable.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="shadow\shadowmap.h">
+      <Filter>shadow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -75,8 +94,11 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{ee5b5cea-dfae-4988-a395-caca9a90f72d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="models">
+    <Filter Include="objects">
       <UniqueIdentifier>{b5d037bb-cfb6-42df-b2bf-ef110d02d896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shadow">
+      <UniqueIdentifier>{3981afc4-10fe-44df-bd1f-4b3f65dd5373}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

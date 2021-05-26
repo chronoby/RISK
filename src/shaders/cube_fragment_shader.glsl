@@ -6,7 +6,6 @@ in vec3 Normal;
 in vec3 FragPos;
 in vec4 FragPosLightSpace;
 
-uniform sampler2D ourTexture;
 uniform vec3 viewPos;
 
 struct Material {
@@ -49,6 +48,7 @@ void main()
     result += CalcPointLight(pointLight, norm, FragPos, viewDir, shadow);
 
     FragColor = vec4(result, 1.0);
+    // FragColor = vec4(shadow, shadow, shadow, 1.0f);
 }
 
 vec3 CalcDirLight(DirLight light, vec3 normal, vec3 viewDir, float shadow)
@@ -86,12 +86,13 @@ float ShadowCalculation(vec3 normal, vec4 fragPosLightSpace)
 
     float closestDepth = texture(shadowMap, projCoords.xy).r; 
     float currentDepth = projCoords.z;
-
+    // return projCoords.x;
     float bias = max(0.05 * (1.0 - dot(normal, normalize(dirLight.direction))), 0.005);
     
     //float shadow = currentDepth - bias> closestDepth ? 1.0 : 0.0;
     float shadow = 0.0;
     vec2 texelSize = 1.0 / textureSize(shadowMap, 0);
+    
     for(int x = -1; x <= 1; ++x)
     {
         for(int y = -1; y <= 1; ++y)

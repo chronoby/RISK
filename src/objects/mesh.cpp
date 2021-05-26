@@ -1,3 +1,6 @@
+#include <glad/glad.h> 
+#include <GLFW/glfw3.h>
+
 #include "mesh.h"
 
 Mesh::Mesh(std::vector<Vertex> vert, std::vector<unsigned int> ind, std::vector<Texture> text)
@@ -34,7 +37,7 @@ void Mesh::setupMesh()
     glBindVertexArray(0);
 }
 
-void Mesh::Draw(Shader shader) 
+void Mesh::draw(Shader shader) 
 {
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;

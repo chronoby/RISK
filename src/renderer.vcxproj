@@ -164,10 +164,12 @@
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mesh.cpp" />
-    <ClCompile Include="model.cpp" />
-    <ClCompile Include="models\cube.cpp" />
+    <ClCompile Include="objects\cube.cpp" />
+    <ClCompile Include="objects\mesh.cpp" />
+    <ClCompile Include="objects\model.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="shadow\shadowmap.cpp" />
+    <ClCompile Include="skybox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
@@ -180,10 +182,13 @@
     <ClInclude Include="imgui\imstb_rectpack.h" />
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
-    <ClInclude Include="mesh.h" />
-    <ClInclude Include="model.h" />
-    <ClInclude Include="models\cube.h" />
+    <ClInclude Include="objects\cube.h" />
+    <ClInclude Include="objects\drawable.h" />
+    <ClInclude Include="objects\mesh.h" />
+    <ClInclude Include="objects\model.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="shadow\shadowmap.h" />
+    <ClInclude Include="skybox.h" />
     <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>

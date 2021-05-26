@@ -4,14 +4,11 @@
 #include <vector>
 #include <string>
 
-#include <glad/glad.h> 
-#include <GLFW/glfw3.h>
-
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "shader.h"
+#include "../shader.h"
 
 struct Vertex
 {
@@ -31,7 +28,7 @@ class Mesh
 {
 public:
     Mesh(std::vector<Vertex> vert, std::vector<unsigned int> ind, std::vector<Texture> text);
-    void Draw(Shader shader);
+    void draw(Shader shader);
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
     std::vector<Texture> textures;

@@ -1,12 +1,12 @@
 #include "model.h"
 
-#include "stb_image.h"
+#include "../stb_image.h"
 unsigned int TextureFromFile(const char *path, const std::string &directory);
 
-void Model::Draw(Shader shader)
+void Model::draw(Shader shader)
 {
     for(unsigned int i = 0; i < meshes.size(); i++)
-        meshes[i].Draw(shader);
+        meshes[i].draw(shader);
 }
 
 void Model::loadModel(std::string path)
