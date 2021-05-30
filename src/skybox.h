@@ -13,8 +13,7 @@
 class Skybox
 {
 public:
-
-    Skybox(Shader s);
+    Skybox();
     void draw(glm::mat4 view, glm::mat4 projection);
     unsigned int loadCubemap(std::vector<std::string> faces);
 

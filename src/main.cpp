@@ -91,31 +91,41 @@ int main()
 
 	glEnable(GL_DEPTH_TEST);
 
-    auto cubeShader = std::make_shared<Shader>("shaders/cube_vertex_shader.glsl", "shaders/cube_fragment_shader.glsl");
-    auto lightShader = std::make_shared<Shader>("shaders/light_vertex_shader.glsl", "shaders/light_fragment_shader.glsl");
-    auto depthShader = std::make_shared<Shader>("shaders/depth_vertex_shader.glsl", "shaders/depth_fragment_shader.glsl");
-	
-    Shader skyboxShader("shaders/skybox_vertex_shader.glsl", "shaders/skybox_fragment_shader.glsl");
-
-	Model man("../assets/model/nanosuit/nanosuit.obj", cubeShader);
-	Cube cube1(cubeShader);
-	Cube cube2(cubeShader);
-	Cube cube3(cubeShader);
-
-	Gui gui;
-    Skybox skybox(skyboxShader);
-    ShadowMap shadowMap;
-
-	glm::vec3 cubePositions[] = {
+    glm::vec3 cubePositions[] = {
         glm::vec3( 0.0f, -1.0f, -1.0f),
         glm::vec3(-1.0f, -1.0f, -3.0f),
         glm::vec3( 1.0f, -1.0f, -5.0f)
     };
 
+    auto cubeShader = std::make_shared<Shader>("shaders/cube_vertex_shader.glsl", "shaders/cube_fragment_shader.glsl");
+    auto lightShader = std::make_shared<Shader>("shaders/light_vertex_shader.glsl", "shaders/light_fragment_shader.glsl");
+	auto depthShader = std::make_shared<Shader>("shaders/depth_vertex_shader.glsl", "shaders/depth_fragment_shader.glsl");
+	
+	// Model man("../assets/model/nanosuit/nanosuit.obj", cubeShader);
+	// Cube cube1(cubeShader);
+	// Cube cube2(cubeShader);
+	// Cube cube3(cubeShader);
+
+    std::vector<std::shared_ptr<Drawable> > drawList;
+
+    auto man = std::make_shared<Model>("../assets/model/nanosuit/nanosuit.obj", cubeShader);
+    auto cube1 = std::make_shared<Cube>(cubeShader, cubePositions[0]);
+    auto cube2 = std::make_shared<Cube>(cubeShader, cubePositions[1]);
+    auto cube3 = std::make_shared<Cube>(cubeShader, cubePositions[2]);
+
+    drawList.push_back(man);
+    drawList.push_back(cube1);
+    drawList.push_back(cube2);
+    drawList.push_back(cube3);
+
+	Gui gui;
+    Skybox skybox;
+    ShadowMap shadowMap;
+
 	unsigned int lightVAO;
 	glGenVertexArrays(1, &lightVAO);
 	glBindVertexArray(lightVAO);
-	glBindBuffer(GL_ARRAY_BUFFER, cube1.VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, cube1->VBO);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
@@ -161,6 +171,15 @@ int main()
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
+        // rotate
+        for (unsigned int i = 0; i < 3; i++)
+        {
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, cubePositions[i]);
+            float angle = 20.0f * i;
+            model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+        }
+
 		// shadow pass
 		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -182,7 +201,7 @@ int main()
             model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
 			glUniformMatrix4fv(glGetUniformLocation(depthShader->ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
-			glBindVertexArray(cube1.VAO);
+			glBindVertexArray(cube1->VAO);
             glDrawArrays(GL_TRIANGLES, 0, 36);
 			glBindVertexArray(0);
         }
@@ -210,7 +229,6 @@ int main()
 		lightmodel = glm::translate(lightmodel, lightPos);
 		glm::vec3 lightPosition= lightmodel * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 
-        
 		for (unsigned int i = 0; i < 3; i++)
         {
             model = glm::mat4(1.0f);
@@ -219,10 +237,10 @@ int main()
             model = glm::rotate(model, (float)glfwGetTime() * glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
 			int repeat = 1;
             cubeShader->initCubeShader(cubeTexture, specularTexture, lightColor);
-
 			cubeShader->setCubeShader(model, view, projection, lightPosition, camera.Position, repeat, shadowMap.depthMap, lightSpaceMatrix);
-            cube1.draw();
+            cube1->draw();
         }
+
         if(gui.room)
         {
 			model = glm::mat4(1.0f);
@@ -238,7 +256,7 @@ int main()
 		ManModel = glm::scale(ManModel, glm::vec3(0.1f));
 		ManModel = glm::translate(ManModel, manPos);
 		glUniformMatrix4fv(glGetUniformLocation(cubeShader->ID, "model"), 1, GL_FALSE, glm::value_ptr(ManModel));
-		man.draw(*cubeShader);
+		man->draw();
 
 		// light
 		lightShader->use();

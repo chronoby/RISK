@@ -9,7 +9,8 @@
 class Drawable
 {
 public:
-    Drawable(){}
+    Drawable(glm::vec3 t = glm::vec3(0.0, 0.0, 0.0), glm::vec3 r = glm::vec3(0.0, 0.0, 0.0), glm::vec3 s = glm::vec3(1.0, 1.0, 1.0)) :
+        translate(t), rotate(r), scale(s) { }
     Drawable(std::shared_ptr<Shader>& s) { shader = s; };
     virtual void draw() = 0;
     

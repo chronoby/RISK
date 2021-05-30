@@ -3,10 +3,10 @@
 #include "../stb_image.h"
 unsigned int TextureFromFile(const char *path, const std::string &directory);
 
-void Model::draw(Shader shader)
+void Model::draw()
 {
     for(unsigned int i = 0; i < meshes.size(); i++)
-        meshes[i].draw(shader);
+        meshes[i].draw(*shader);
 }
 
 void Model::loadModel(std::string path)

@@ -5,7 +5,7 @@
 #include "skybox.h"
 #include "stb_image.h"
 
-Skybox::Skybox(Shader s)
+Skybox::Skybox()
 {
     float skyboxVertices[] = {
     // positions          
@@ -73,7 +73,7 @@ Skybox::Skybox(Shader s)
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
 
-    shader = s;
+    shader = Shader("shaders/skybox_vertex_shader.glsl", "shaders/skybox_fragment_shader.glsl");
 }
 
 void Skybox::draw(glm::mat4 view, glm::mat4 projection)

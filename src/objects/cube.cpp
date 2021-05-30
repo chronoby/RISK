@@ -52,7 +52,7 @@ static unsigned int indices[6] = {
     1, 2, 3
 };
 
-Cube::Cube(std::shared_ptr<Shader>& s)
+Cube::Cube(std::shared_ptr<Shader>& sd, glm::vec3 t, glm::vec3 r, glm::vec3 s) : shader(sd), Drawable(t, r, s)
 {
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -72,8 +72,6 @@ Cube::Cube(std::shared_ptr<Shader>& s)
 
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
-
-    shader = s;
 }
 
 void Cube::draw()

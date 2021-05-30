@@ -16,13 +16,13 @@
 class Model : public Drawable
 {
 public:
-    Model(const char* path, std::shared_ptr<Shader>& s) 
+    Model(const char* path, std::shared_ptr<Shader>& sd, glm::vec3 t = glm::vec3(0.0, 0.0, 0.0), 
+        glm::vec3 r = glm::vec3(0.0, 0.0, 0.0), glm::vec3 s = glm::vec3(1.0, 1.0, 1.0)) :
+        shader(sd), Drawable(t, r, s)
     { 
         loadModel(path);
-        shader = s;
     }
-    virtual void draw(Shader shader);
-    virtual void draw() { std::cout << " "; }
+    virtual void draw() override;
 
 private:
     std::vector<Texture> textures_loaded;
