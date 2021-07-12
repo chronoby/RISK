@@ -1,0 +1,109 @@
+﻿  camera.cpp
+  gui.cpp
+C:\Users\Buyao\Courses\ACG\ash\src\gui.cpp(52,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\gui.cpp(56,31): warning C4312: 'type cast': conversion from 'unsigned int' to 'ImTextureID' of greater size
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glfw.cpp
+  imgui_impl_opengl3.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.h(4,44): warning C4305: 'initializing': truncation from 'double' to 'const float'
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(80,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(201,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(306,21): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(310,21): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(314,21): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(318,21): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(322,21): warning C4305: '+=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(326,21): warning C4305: '-=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(330,21): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(334,21): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Buyao\Courses\ACG\ash\src\main.cpp(428,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  mesh.cpp
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.h(4,44): warning C4305: 'initializing': truncation from 'double' to 'const float'
+C:\Users\Buyao\Courses\ACG\ash\src\mesh.cpp(87,97): warning C4244: 'argument': conversion from 'unsigned int' to 'GLfloat', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\mesh.cpp(95,68): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+  model.cpp
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.h(4,44): warning C4305: 'initializing': truncation from 'double' to 'const float'
+C:\Users\Buyao\Courses\ACG\ash\src\model.cpp(236,43): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\model.cpp(302,57): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\model.cpp(353,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\model.cpp(356,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Buyao\Courses\ACG\ash\src\model.cpp(366,16): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  sampler.cpp
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.h(4,44): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  shader.cpp
+  shFunction.cpp
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.h(4,44): warning C4305: 'initializing': truncation from 'double' to 'const float'
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(5,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(8,43): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(11,44): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(26,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(28,48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(51,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(58,44): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.cpp(62,50): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  skybox.cpp
+  test.cpp
+C:\Users\Buyao\Courses\ACG\ash\src\shFunction.h(4,44): warning C4305: 'initializing': truncation from 'double' to 'const float'
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(32,21): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(34,21): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(36,23): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(135,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(143,84): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(149,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(151,57): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(152,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(153,58): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(155,62): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(156,60): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(158,108): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(159,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(161,66): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(162,154): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(163,67): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(164,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(165,96): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(166,69): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(167,156): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(170,75): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(171,183): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(173,75): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(174,127): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(175,71): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(176,146): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(177,97): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(178,146): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(179,123): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+C:\Users\Buyao\Courses\ACG\ash\src\test.cpp(37): warning C4715: 'P': not all control paths return a value
+  glad.c
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  renderer.vcxproj -> C:\Users\Buyao\Courses\ACG\ash\x64\Debug\renderer.exe

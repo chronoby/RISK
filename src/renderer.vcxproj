@@ -72,23 +72,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;E:\Include\OpenGL\include;$(IncludePath);D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Dependences\glm;D:\Dependences\glad\include;E:\Include\OpenGL\include;$(IncludePath);D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
+    <LibraryPath>D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>..\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
+    <LibraryPath>D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Dependences\assimp-5.0.1\include;D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
-    <LibraryPath>D:\Dependences\assimp-5.0.1\lib;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Dependences\glm;D:\Dependences\glad\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\include</IncludePath>
+    <LibraryPath>D:\Dependences\glfw\glfw-3.3.2.bin.WIN64\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,7 +100,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>E:\Include\OpenGL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
@@ -132,7 +132,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,7 +149,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -166,8 +166,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="model.cpp" />
-    <ClCompile Include="models\cube.cpp" />
+    <ClCompile Include="sampler.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="shFunction.cpp" />
+    <ClCompile Include="skybox.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
@@ -182,19 +185,20 @@
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="model.h" />
-    <ClInclude Include="models\cube.h" />
+    <ClInclude Include="sampler.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="shFunction.h" />
+    <ClInclude Include="skybox.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\depth_fragment_shader.glsl" />
-    <None Include="shader\depth_vertex_shader.glsl" />
-    <None Include="shader\fragment_shader.glsl" />
-    <None Include="shader\light_fragment_shader.glsl" />
-    <None Include="shader\light_vertex_shader.glsl" />
-    <None Include="shader\skybox_fragment_shader.glsl" />
-    <None Include="shader\skybox_vertex_shader.glsl" />
-    <None Include="shader\vertex_shader.glsl" />
+    <None Include="shaders\ash_fragment_shader.glsl" />
+    <None Include="shaders\ash_vertex_shader.glsl" />
+    <None Include="shaders\light_fragment_shader.glsl" />
+    <None Include="shaders\light_vertex_shader.glsl" />
+    <None Include="shaders\skybox_fragment_shader.glsl" />
+    <None Include="shaders\skybox_vertex_shader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

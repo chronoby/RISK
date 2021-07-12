@@ -369,7 +369,7 @@ stb_image.h
 stb_image_write.h
 
 # diff
-src/RISK.vcxproj
+src/renderer.vcxproj
 src/glad.c
 
 # model

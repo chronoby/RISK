@@ -4,8 +4,6 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mesh.cpp" />
-    <ClCompile Include="model.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="imgui\imgui.cpp">
       <Filter>imgui</Filter>
@@ -29,14 +27,15 @@
       <Filter>imgui</Filter>
     </ClCompile>
     <ClCompile Include="gui.cpp" />
-    <ClCompile Include="models\cube.cpp">
-      <Filter>models</Filter>
-    </ClCompile>
+    <ClCompile Include="skybox.cpp" />
+    <ClCompile Include="sampler.cpp" />
+    <ClCompile Include="shFunction.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="model.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
-    <ClInclude Include="mesh.h" />
-    <ClInclude Include="model.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="imgui\imconfig.h">
@@ -64,9 +63,12 @@
       <Filter>imgui</Filter>
     </ClInclude>
     <ClInclude Include="gui.h" />
-    <ClInclude Include="models\cube.h">
-      <Filter>models</Filter>
-    </ClInclude>
+    <ClInclude Include="skybox.h" />
+    <ClInclude Include="sampler.h" />
+    <ClInclude Include="shFunction.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="model.h" />
+    <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="imgui">
@@ -75,33 +77,24 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{ee5b5cea-dfae-4988-a395-caca9a90f72d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="models">
-      <UniqueIdentifier>{b5d037bb-cfb6-42df-b2bf-ef110d02d896}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shader\depth_fragment_shader.glsl">
+    <None Include="shaders\light_fragment_shader.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\depth_vertex_shader.glsl">
+    <None Include="shaders\light_vertex_shader.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\fragment_shader.glsl">
+    <None Include="shaders\skybox_fragment_shader.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\light_fragment_shader.glsl">
+    <None Include="shaders\skybox_vertex_shader.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\light_vertex_shader.glsl">
+    <None Include="shaders\ash_fragment_shader.glsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="shader\skybox_fragment_shader.glsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\skybox_vertex_shader.glsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shader\vertex_shader.glsl">
+    <None Include="shaders\ash_vertex_shader.glsl">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>
