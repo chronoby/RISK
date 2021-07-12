@@ -4,13 +4,18 @@ A tiny 3D renderer in OpenGL.
 
 ### Features
 
-- Transformations
-- Shaders
-- Textures
-- Lights
-- Model loading
-- Shadow mapping
-- Skybox
+- Basic
+  - Blinn-Phong shading
+  - Shadow mapping
+  - Skybox
+- Advance(in branch `ash`)
+  - *SIGGRAPH 2018: Analytic Spherical Harmonic Coefficients for Polygonal Area Lights* 论文复现
+  - Precomputed radiance transfer
+
+### Demo
+
+- [Basic](https://github.com/chronoby/renderer/tree/main/demo)
+- [Advance](https://github.com/chronoby/renderer/tree/ash/result)
 
 ### Dependencies
 
@@ -20,24 +25,3 @@ A tiny 3D renderer in OpenGL.
 - Dear ImGui
 - assimp 5.0.1
 - stb
-
-### Demo
-
-- Scene demo
-
-![avator](demo/demo.png)
-
-- Shadow
-
-![avator](demo/shadow.png)
-
-- Skybox
-
-![avator](demo/skybox.png)
-
-### Something to be done
-
-- Interactive UI
-- Advanced lighting
-- Advanced shader
-- ...
